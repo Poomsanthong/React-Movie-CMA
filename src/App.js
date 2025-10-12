@@ -12,11 +12,21 @@ const App = () => {
     searchMovies("batman");
   }, []);
 
+  // fetch data from API
   const searchMovies = async (title) => {
     const response = await fetch(`${API_URL}&s=${title}`);
     const data = await response.json();
+
+    if (data.Search) {
+      //remove duplicates
+      const uniqueMovies = data.Search.filter(
+        (movie, index, self) =>
+          index === self.findIndex((m) => m.imdbID === movie.imdbID)
+      );
+      setMovie(uniqueMovies);
+    }
+
     console.log(data);
-    setMovie(data.Search);
   };
 
   return (
