@@ -12,7 +12,8 @@ const movie1 = {
     "https://m.media-amazon.com/images/M/MV5BYzU3ZjE3M2UtM2E4Ni00MDI5LTkyZGUtOTFkMGIyYjNjZGU3XkEyXkFqcGc@._V1_SX300.jpg",
 };
 const App = () => {
-  const [movies, setMovie] = React.useState([]);
+  const [movies, setMovie] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const searchMovies = async (title) => {
     const response = await fetch(`${API_URL}&t=${title}`);
@@ -20,9 +21,7 @@ const App = () => {
     setMovie(data.Search);
   };
 
-  useEffect(() => {
-    searchMovies("batman");
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <div className="app">
@@ -31,10 +30,14 @@ const App = () => {
         <input
           type="text"
           placeholder="Search for a movie..."
-          value="Men"
-          onClick={() => {}}
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <img src={searchIcon} alt="Search" onClick={() => {}} />
+        <img
+          src={searchIcon}
+          alt="Search"
+          onClick={() => searchMovies(searchTerm)}
+        />
       </div>
 
       <div>
