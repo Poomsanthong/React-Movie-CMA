@@ -9,7 +9,9 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [movies, setMovie] = useState([]);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    searchMovies("batman");
+  }, []);
 
   // fetch data from API
   const searchMovies = async (title) => {
