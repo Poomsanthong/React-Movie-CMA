@@ -23,6 +23,12 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   min-width: 1000px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
 }
 
 /* hero section */
@@ -99,4 +105,47 @@ h1 {
 .empty {
   text-align: center;
   margin: 20px 0;
+}
+
+/* footer */
+footer {
+  background: #1a1a1a;
+  color: var(--muted-text);
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 3rem;
+  border-top: 1px solid #2a2a2a;
+}
+
+footer p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+footer span {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+footer:hover {
+  background: #0f0f0f;
+  transition: background 0.3s ease;
+}
+
+/*  Responsive adjustments */
+@media (max-width: 768px) {
+  footer {
+    padding: 1rem 0.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    padding: 0.8rem 0.3rem;
+    font-size: 0.75rem;
+  }
+
+  footer p {
+    margin: 0.2rem 0;
+  }
 }
