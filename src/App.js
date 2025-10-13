@@ -32,33 +32,46 @@ const App = () => {
 
   return (
     <div className="app">
-      <h1>Movie Search</h1>
-      <div className="search">
-        <input
-          placeholder="Search for a movie..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <img
-          src={searchIcon}
-          alt="Search"
-          onClick={() => searchMovies(searchTerm)}
-        />
-      </div>
+      <header>
+        <h1>Movie Search</h1>
 
-      <div>
-        {movies?.length > 0 ? (
-          <div className="container">
-            {movies.map((movie) => (
-              <MovieCard key={movie.imdbID} movie={movie} />
-            ))}
-          </div>
-        ) : (
-          <div className="empty">
-            <p>No movies found</p>
-          </div>
-        )}
-      </div>
+        <div className="search">
+          <input
+            placeholder="Search for a movie..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <img
+            src={searchIcon}
+            alt="Search"
+            onClick={() => searchMovies(searchTerm)}
+          />
+        </div>
+      </header>
+
+      <main>
+        <div>
+          {movies?.length > 0 ? (
+            <div className="container">
+              {movies.map((movie) => (
+                <MovieCard key={movie.imdbID} movie={movie} />
+              ))}
+            </div>
+          ) : (
+            <div className="empty">
+              <p>No movies found</p>
+            </div>
+          )}
+        </div>
+      </main>
+      {/* footer */}
+
+      <footer>
+        <p>© 2024 Movie Search App. All rights reserved.</p>
+        <p>
+          Made with ❤️ by <span>Poom Santhong</span>
+        </p>
+      </footer>
     </div>
   );
 };
