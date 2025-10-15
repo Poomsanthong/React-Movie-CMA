@@ -10,7 +10,7 @@ const App = () => {
   const [movies, setMovie] = useState([]);
 
   useEffect(() => {
-    searchMovies("batman");
+    searchMovies("iron man");
   }, []);
 
   // fetch data from API
